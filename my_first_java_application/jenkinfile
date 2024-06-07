@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 // Navigate to the application directory and compile the Java application
-                sh 'javac HelloWorld.java'
+                sh 'cd my_first_java_application && javac HelloWorld.java'
             }
         }
         stage('Run') {
@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 // Navigate to the application directory and run the Java application
-                sh 'java HelloWorld'
+                sh 'cd my_first_java_application && java HelloWorld'
             }
         }
     }
