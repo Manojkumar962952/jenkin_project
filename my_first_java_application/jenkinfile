@@ -1,20 +1,13 @@
 pipeline {
     agent none
     stages {
-        stage('Checkout') {
-            agent any
-            steps {
-                // Checkout the code from GitHub
-                git 'https://github.com/Manojkumar962952/jenkin_project.git'
-            }
-        }
         stage('Build') {
             agent {
                 docker { image 'openjdk:11' }
             }
             steps {
                 // Navigate to the application directory and compile the Java application
-                sh 'cd my_first_java_application && javac HelloWorld.java'
+                sh 'javac HelloWorld.java'
             }
         }
         stage('Run') {
@@ -23,7 +16,7 @@ pipeline {
             }
             steps {
                 // Navigate to the application directory and run the Java application
-                sh 'cd my_first_java_application && java HelloWorld'
+                sh 'java HelloWorld'
             }
         }
     }
